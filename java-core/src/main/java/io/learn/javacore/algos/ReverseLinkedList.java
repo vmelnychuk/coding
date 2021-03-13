@@ -1,3 +1,6 @@
+// привет Василий
+// Как поживаешь
+
 package io.learn.javacore.algos;
 
 public class ReverseLinkedList {
