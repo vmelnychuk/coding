@@ -1,6 +1,7 @@
 package io.learn.javacore.graph;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Unit {
     private final String name;
@@ -25,5 +26,18 @@ public class Unit {
             "name='" + name + '\'' +
             ", factor=" + factor +
             '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Unit unit = (Unit) o;
+        return Objects.equals(getName(), unit.getName()) && Objects.equals(getFactor(), unit.getFactor());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getFactor());
     }
 }
