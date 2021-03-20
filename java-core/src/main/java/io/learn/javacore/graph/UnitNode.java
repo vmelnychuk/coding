@@ -1,5 +1,6 @@
 package io.learn.javacore.graph;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -9,6 +10,7 @@ public class UnitNode {
     private boolean visited;
     private List<UnitNode> adjacencyList;
     private final boolean baseUnit;
+    private BigDecimal calculatedFactor;
 
     public UnitNode(Unit unit, boolean baseUnit) {
         this.unit = unit;
@@ -48,6 +50,14 @@ public class UnitNode {
         return baseUnit;
     }
 
+    public BigDecimal getCalculatedFactor() {
+        return calculatedFactor;
+    }
+
+    public void setCalculatedFactor(BigDecimal calculatedFactor) {
+        this.calculatedFactor = calculatedFactor;
+    }
+
     @Override
     public String toString() {
         String adjacencyListRepresentation = adjacencyList.stream()
@@ -56,6 +66,7 @@ public class UnitNode {
         return "UnitNode{" +
             "unit=" + unit +
             ", visited=" + visited +
+            ", calculatedFactor=" + calculatedFactor +
             ", adjacencyList=" + adjacencyListRepresentation +
             '}';
     }

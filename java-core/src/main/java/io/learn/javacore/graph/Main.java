@@ -1,6 +1,7 @@
 package io.learn.javacore.graph;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -21,12 +22,18 @@ public class Main {
         kiloTonne.addNeighbor(tonne);
 
         BreathFirstSearch breathFirstSearch = new BreathFirstSearch();
-        breathFirstSearch.traverse(pound);
+        breathFirstSearch.traverse(tonne);
 
         Map<String, BigDecimal> conversionTable = breathFirstSearch.getConversionTable();
         String tableString = conversionTable.keySet().stream()
             .map(key -> key + "=" + conversionTable.get(key))
             .collect(Collectors.joining(", ", "{", "}"));
         System.out.println(tableString);
+
+        List<UnitNode> traversalPath = breathFirstSearch.getTraversalPath();
+        System.out.println("\tTraversal Path:");
+        for(UnitNode unitNode : traversalPath) {
+            System.out.println(unitNode);
+        }
     }
 }
