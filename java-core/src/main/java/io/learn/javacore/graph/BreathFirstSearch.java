@@ -19,11 +19,9 @@ public class BreathFirstSearch {
 
     public List<UnitNode> traverse(UnitNode startNode) {
         Queue<UnitNode> queue = new LinkedList<>();
-
         startNode.setVisited(true);
         startNode.setCalculatedFactor(startNode.getUnit().getFactor());
         queue.add(startNode);
-
         while (!queue.isEmpty()) {
             UnitNode currentNode = queue.remove();
             traversalPath.add(currentNode);
@@ -31,12 +29,10 @@ public class BreathFirstSearch {
                 if (!neighbourNode.isVisited()) {
                     neighbourNode.setVisited(true);
                     queue.add(neighbourNode);
-                    // calculate conversion
                     neighbourNode.setCalculatedFactor(calculateConversionFactor(currentNode, neighbourNode));
                 }
             }
         }
-        // Remove starting node
         traversalPath.remove(0);
         return traversalPath;
     }
