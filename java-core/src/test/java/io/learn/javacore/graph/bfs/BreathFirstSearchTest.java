@@ -1,4 +1,4 @@
-package io.learn.javacore.graph;
+package io.learn.javacore.graph.bfs;
 
 import static org.junit.jupiter.api.Assertions.*;
 

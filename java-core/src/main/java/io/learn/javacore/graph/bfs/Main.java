@@ -1,10 +1,8 @@
-package io.learn.javacore.graph;
+package io.learn.javacore.graph.bfs;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 public class Main {
 
@@ -71,13 +69,10 @@ public class Main {
         conversionFactors.add(new ConversionFactor(barrelUnit, mmbtuUnit, BigDecimal.valueOf(5.8)));
 
         BreathFirstSearch breathFirstSearch = new BreathFirstSearch(conversionFactors);
-        breathFirstSearch.traverse(pound);
+        List<UnitNode> traversalPath = breathFirstSearch.traverse(pound);
 
-        Map<String, BigDecimal> conversionTable = breathFirstSearch.getConversionTable();
-
-        List<UnitNode> traversalPath = breathFirstSearch.getTraversalPath();
         System.out.println("\tTraversal Path:");
-        for(UnitNode unitNode : traversalPath) {
+        for (UnitNode unitNode : traversalPath) {
             System.out.println(unitNode);
         }
     }

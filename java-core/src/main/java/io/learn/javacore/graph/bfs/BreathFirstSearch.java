@@ -1,4 +1,4 @@
-package io.learn.javacore.graph;
+package io.learn.javacore.graph.bfs;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -33,7 +33,9 @@ public class BreathFirstSearch {
                 }
             }
         }
-        traversalPath.remove(0);
+        if (traversalPath.contains(startNode)) {
+            traversalPath.remove(startNode);
+        }
         return traversalPath;
     }
 

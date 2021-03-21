@@ -1,4 +1,4 @@
-package io.learn.javacore.graph;
+package io.learn.javacore.graph.bfs;
 
 import java.math.BigDecimal;
 
