@@ -80,4 +80,20 @@ public class UnitNode implements Comparable<UnitNode> {
             ", calculatedFactor=" + calculatedFactor +
             '}';
     }
+
+    public BigDecimal getCalculatedFactor() {
+        return calculatedFactor;
+    }
+
+    public void setCalculatedFactor(BigDecimal calculatedFactor) {
+        this.calculatedFactor = calculatedFactor;
+    }
+
+    public Unit getUnit() {
+        return unit;
+    }
+
+    public void setUnit(Unit unit) {
+        this.unit = unit;
+    }
 }

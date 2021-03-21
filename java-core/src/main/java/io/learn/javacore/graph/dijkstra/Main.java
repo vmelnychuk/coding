@@ -1,8 +1,10 @@
 package io.learn.javacore.graph.dijkstra;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
+import io.learn.javacore.graph.bfs.ConversionFactor;
 import io.learn.javacore.graph.bfs.Unit;
 
 public class Main {
@@ -65,11 +67,16 @@ public class Main {
         barrel.addNeighbor(mmbtu);
         mmbtu.addNeighbor(barrel);
 
-        DijkstraAlgorithm dijkstra = new DijkstraAlgorithm();
-        //dijkstra.computePath(pound);
-        //List<UnitNode> shortestPathToKilowattHours = dijkstra.getShortestPathTo(kilowattHours);
-        //System.out.println("\tpath to:\n" + shortestPathToKilowattHours);
+        List<ConversionFactor> conversionFactors = new ArrayList<>();
+        conversionFactors.add(new ConversionFactor(tonneUnit, barrelUnit, BigDecimal.valueOf(7.33)));
+        conversionFactors.add(new ConversionFactor(barrelUnit, mmbtuUnit, BigDecimal.valueOf(5.8)));
 
-        System.out.println("\tdijkstra.getConversionFromTo(tonne, mmbtu) \n" + dijkstra.getConversionFromTo(tonne, mmbtu));
+        DijkstraAlgorithm dijkstra = new DijkstraAlgorithm(conversionFactors);
+        dijkstra.computePath(pound);
+        List<UnitNode> conversionToGigaJoules = dijkstra.getConversionTo(gigaJoules);
+        System.out.println("\t path to KWH\n" + conversionToGigaJoules);
+
+        List<UnitNode> conversionToBarrel = dijkstra.getConversionTo(barrel);
+        System.out.println("\t path to Barrel \n" + conversionToBarrel);
     }
 }
