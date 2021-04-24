@@ -68,8 +68,9 @@ public class Main {
         conversionFactors.add(new ConversionFactor(tonneUnit, barrelUnit, BigDecimal.valueOf(7.33)));
         conversionFactors.add(new ConversionFactor(barrelUnit, mmbtuUnit, BigDecimal.valueOf(5.8)));
 
+        UnitNode startNode = pound;
         BreathFirstSearch breathFirstSearch = new BreathFirstSearch(conversionFactors);
-        List<UnitNode> traversalPath = breathFirstSearch.traverse(pound);
+        List<UnitNode> traversalPath = breathFirstSearch.traverse(startNode);
 
         System.out.println("\tTraversal Path:");
         for (UnitNode unitNode : traversalPath) {
