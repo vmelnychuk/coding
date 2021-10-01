@@ -62,6 +62,7 @@ class LinkedList {
         while (current != null) {
             next = current.getNext();
             current.setNext(prev);
+
             prev = current;
             current = next;
         }
